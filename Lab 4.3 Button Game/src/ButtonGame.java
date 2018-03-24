@@ -15,6 +15,7 @@ public class ButtonGame extends Application
 	private int score = 0;
 	private boolean scoring;
 	private long timeStep;
+
 	
     public static void main(String[] args) 
     {
@@ -28,51 +29,85 @@ public class ButtonGame extends Application
         Button btn = new Button();
         btn.setText("Say 'Click me!'");
         Text txt = new Text(10,0, "Click Score");
-        Label label = new Label("Score: 0");
+        Label label = new Label(" ");
+        Label label1 = new Label(" ");
+        Label label2 = new Label(" ");
+       
         btn.setOnAction(new EventHandler<ActionEvent>() 
         
         {
             @Override
             public void handle(ActionEvent event) 
             {
-            	
-                System.out.println("Click me!");
-                score ++;
-                label.setText("Score: "+ score);
-                System.out.println(score);
+            
+               if(scoring) {
+            	   score++;
+            	  
+               }else{
+            	  score--;
+            	}
             }
         });
         
-        timeStep = System.nanoTime() + 1000000000L;
+        
+       
+        
+        timeStep = System.nanoTime() + 10000000000L;
         new AnimationTimer()
         {
+        	
         	public void handle(long now)
         	{
+        	
+               
+               
         		if(now > timeStep)
         		{
-        			timeStep = now + 1000000000L;
+        			timeStep = now + 10000000000L;
         			scoring = !scoring;
         		}
         		if(!scoring)
         		{
         			btn.setText("Don't click!");
+        			label1.setText("Wait for it....");
+        			label2.setText("Wait 10 seconds after this timer starts: " + Integer.toString((int) (now / 1000000000)) );
         			
+        			// Integer.toString(  (int) ( ((x / 1000000000)+10)-(now / 1000000000))  )  );
         		}
+
         		else
         		{
-        			btn.setText("Click me");
+        			label.setText("Game running");
+        			btn.setText("Click me"); 
+        			
+        			label1.setText("You have 10 seconds to click! Go!");
+        			label2.setText("You have 10 seconds after the starting time : " + Integer.toString((int) (now / 1000000000)));
         		}
         		txt.setText("Score: " + Integer.toString(score));
-        	}
+                }
+        	
         	}.start();
         
-        label.setTranslateX(-30);
-        label.setTranslateY(-50);
         
+       txt.setTranslateX(-20);
+       txt.setTranslateY(-20);
+       label.setTranslateX(-20);
+       label.setTranslateY(-50);
+       label1.setTranslateX(-20);
+       label1.setTranslateY(-75);
+       label2.setTranslateX(-20);
+       label2.setTranslateY(-65);
+      
         StackPane root = new StackPane();
         root.getChildren().add(btn);
+        root.getChildren().add(txt);
         root.getChildren().add(label);
-        primaryStage.setScene(new Scene(root, 300, 250));
+        root.getChildren().add(label1);
+        root.getChildren().add(label2);
+        primaryStage.setScene(new Scene(root, 400, 250));
         primaryStage.show();
     }
+    
+   
+   
 }
