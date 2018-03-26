@@ -10,7 +10,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class ButtonGame extends Application 
+public class ChaseTheButton extends Application 
 {
 	private int score = 0;
 	private boolean scoring;
@@ -52,9 +52,8 @@ public class ButtonGame extends Application
         timeStep = System.nanoTime() + 10000000000L;
         new AnimationTimer()
         {
-        	
         	public void handle(long now)
-        	{
+        	{ 
         		if(now > timeStep)
         		{
         			timeStep = now + 10000000000L;
@@ -62,11 +61,8 @@ public class ButtonGame extends Application
         		}
         		if(!scoring)
         		{
-        			btn.setText("Don't click!");
-        			label1.setText("Wait for it....");
-        			label2.setText("Wait 10 seconds after this timer starts: " + Integer.toString((int) (now / 1000000000)) );
+        			btn.setText("Click me!");
         			
-        			// Integer.toString(  (int) ( ((x / 1000000000)+10)-(now / 1000000000))  )  );
         		}
 
         		else
@@ -74,11 +70,10 @@ public class ButtonGame extends Application
         			label.setText("Game running");
         			btn.setText("Click me"); 
         			
-        			label1.setText("You have 10 seconds to click! Go!");
-        			label2.setText("You have 10 seconds after the starting time : " + Integer.toString((int) (now / 1000000000)));
         		}
         		txt.setText("Score: " + Integer.toString(score));
-             }
+        	}
+        	
         }.start();
         
         txt.setTranslateX(-20);
