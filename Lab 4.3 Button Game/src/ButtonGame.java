@@ -43,7 +43,11 @@ public class ButtonGame extends Application
             
                if(scoring) {
             	   score++;
-            	   highScore++;
+            	   if(score> highScore) {
+                  	   highScore++;
+                  	   
+                  	   
+                     }
             	 
                }else{
             	  score--;
@@ -82,11 +86,8 @@ public class ButtonGame extends Application
         			label2.setText("You have 10 seconds after the starting time : " + Integer.toString((int) (now / 1000000000)));
         		}
         		
-        		 if(score> highScore) {
-              	   highScore = score;
-              	   
-              	   
-                 }
+        		
+                 
         		txt.setText("Score: " + Integer.toString(score));
         		label.setText("HIGH SCORE: " + Integer.toString(highScore) );
              }
