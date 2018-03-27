@@ -15,6 +15,7 @@ public class ButtonGame extends Application
 	private int score = 0;
 	private boolean scoring;
 	private long timeStep;
+	private int highScore=0;
 
 	
     public static void main(String[] args) 
@@ -42,10 +43,12 @@ public class ButtonGame extends Application
             
                if(scoring) {
             	   score++;
-            	  
+            	   highScore++;
+            	 
                }else{
             	  score--;
             	}
+              
             }
         });
         
@@ -63,6 +66,7 @@ public class ButtonGame extends Application
         		if(!scoring)
         		{
         			btn.setText("Don't click!");
+        			
         			label1.setText("Wait for it....");
         			label2.setText("Wait 10 seconds after this timer starts: " + Integer.toString((int) (now / 1000000000)) );
         			
@@ -71,13 +75,20 @@ public class ButtonGame extends Application
 
         		else
         		{
-        			label.setText("Game running");
+        
         			btn.setText("Click me"); 
         			
         			label1.setText("You have 10 seconds to click! Go!");
         			label2.setText("You have 10 seconds after the starting time : " + Integer.toString((int) (now / 1000000000)));
         		}
+        		
+        		 if(score> highScore) {
+              	   highScore = score;
+              	   
+              	   
+                 }
         		txt.setText("Score: " + Integer.toString(score));
+        		label.setText("HIGH SCORE: " + Integer.toString(highScore) );
              }
         }.start();
         
