@@ -41,18 +41,18 @@ public class ButtonGame extends Application
             public void handle(ActionEvent event) 
             {
             
-               if(scoring) {
+               if(scoring) 
+               {
             	   score++;
-            	   if(score> highScore) {
+            	   if(score> highScore) 
+            	   {
                   	   highScore++;
-                  	   
-                  	   
-                     }
-            	 
-               }else{
+                   }
+               }
+               else
+               {
             	  score--;
-            	}
-              
+               }
             }
         });
         
@@ -79,18 +79,14 @@ public class ButtonGame extends Application
 
         		else
         		{
-        
-        			btn.setText("Click me"); 
-        			
+        			btn.setText("Click me");
         			label1.setText("You have 10 seconds to click! Go!");
         			label2.setText("You have 10 seconds after the starting time : " + Integer.toString((int) (now / 1000000000)));
         		}
-        		
-        		
                  
         		txt.setText("Score: " + Integer.toString(score));
         		label.setText("HIGH SCORE: " + Integer.toString(highScore) );
-             }
+            }
         }.start();
         
         txt.setTranslateX(-20);

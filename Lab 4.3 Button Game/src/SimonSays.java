@@ -28,11 +28,10 @@ public class SimonSays extends Application
     {
         primaryStage.setTitle("Click me!");
         Button btn = new Button();
-        btn.setText("Say 'Click me!'");
-        Text txt = new Text(10,0, "Click Score");
-        Label label = new Label(" ");
-        Label label1 = new Label(" ");
-        Label label2 = new Label(" ");
+        Button btn1 = new Button();
+        Button btn2 = new Button();
+        Button btn3 = new Button();
+
        
         btn.setOnAction(new EventHandler<ActionEvent>() 
         
@@ -41,18 +40,18 @@ public class SimonSays extends Application
             public void handle(ActionEvent event) 
             {
             
-               if(scoring) {
+               if(scoring) 
+               {
             	   score++;
-            	   if(score> highScore) {
+            	   if(score> highScore) 
+            	   {
                   	   highScore++;
-                  	   
-                  	   
-                     }
-            	 
-               }else{
+                   }
+               }
+               else
+               {
             	  score--;
-            	}
-              
+               }
             }
         });
         
@@ -62,50 +61,24 @@ public class SimonSays extends Application
         	
         	public void handle(long now)
         	{
-        		if(now > timeStep)
-        		{
-        			timeStep = now + 10000000000L;
-        			scoring = !scoring;
-        		}
-        		if(!scoring)
-        		{
-        			btn.setText("Don't click!");
-        			
-        			label1.setText("Wait for it....");
-        			label2.setText("Wait 10 seconds after this timer starts: " + Integer.toString((int) (now / 1000000000)) );
-        		}
-
-        		else
-        		{
-        
-        			btn.setText("Click me"); 
-        			
-        			label1.setText("You have 10 seconds to click! Go!");
-        			label2.setText("You have 10 seconds after the starting time : " + Integer.toString((int) (now / 1000000000)));
-        		}
         		
-        		
-                 
-        		txt.setText("Score: " + Integer.toString(score));
-        		label.setText("HIGH SCORE: " + Integer.toString(highScore) );
-             }
+            }
         }.start();
         
-        txt.setTranslateX(-20);
-        txt.setTranslateY(-20);
-        label.setTranslateX(-20);
-        label.setTranslateY(-50);
-        label1.setTranslateX(-20);
-        label1.setTranslateY(-75);
-        label2.setTranslateX(-20);
-        label2.setTranslateY(-65);
+        btn.setTranslateX(-50);
+        btn.setTranslateY(50);
+        btn1.setTranslateX(-50);
+        btn1.setTranslateY(-50);
+        btn2.setTranslateX(50);
+        btn2.setTranslateY(50);
+        btn3.setTranslateX(50);
+        btn3.setTranslateY(-50);
       
         StackPane root = new StackPane();
         root.getChildren().add(btn);
-        root.getChildren().add(txt);
-        root.getChildren().add(label);
-        root.getChildren().add(label1);
-        root.getChildren().add(label2);
+        root.getChildren().add(btn1);
+        root.getChildren().add(btn2);
+        root.getChildren().add(btn3);
         primaryStage.setScene(new Scene(root, 400, 250));
         primaryStage.show();
     }
