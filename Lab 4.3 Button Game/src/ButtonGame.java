@@ -33,7 +33,12 @@ public class ButtonGame extends Application
         Label label = new Label(" ");
         Label label1 = new Label(" ");
         Label label2 = new Label(" ");
-       
+        txt.setStyle("-fx-font: normal bold 12px 'monospace' "); 
+        label.setStyle("-fx-font: normal bold 12px 'monospace' "); 
+        label1.setStyle("-fx-font: normal bold 12px 'monospace' "); 
+        label2.setStyle("-fx-font: normal bold 11px 'monospace' "); 
+        btn.setStyle("-fx-font: normal 12px 'monospace' "); 
+        
         btn.setOnAction(new EventHandler<ActionEvent>() 
         
         {
@@ -71,7 +76,7 @@ public class ButtonGame extends Application
         		{
         			btn.setText("Don't click!");
         			
-        			label1.setText("Wait for it....");
+        			label1.setText("Wait for it.... Don't click....");
         			label2.setText("Wait 10 seconds after this timer starts: " + Integer.toString((int) (now / 1000000000)) );
         			
         			// Integer.toString(  (int) ( ((x / 1000000000)+10)-(now / 1000000000))  )  );
@@ -84,19 +89,19 @@ public class ButtonGame extends Application
         			label2.setText("You have 10 seconds after the starting time : " + Integer.toString((int) (now / 1000000000)));
         		}
                  
-        		txt.setText("Score: " + Integer.toString(score));
-        		label.setText("HIGH SCORE: " + Integer.toString(highScore) );
+        		txt.setText("SCORE: " + Integer.toString(score));
+        		label.setText("HIGH SCORE: " + Integer.toString(highScore));
             }
         }.start();
         
-        txt.setTranslateX(-20);
-        txt.setTranslateY(-20);
-        label.setTranslateX(-20);
-        label.setTranslateY(-50);
+        txt.setTranslateX(-80);
+        txt.setTranslateY(-100);
+        label.setTranslateX(50);
+        label.setTranslateY(-100);
         label1.setTranslateX(-20);
         label1.setTranslateY(-75);
-        label2.setTranslateX(-20);
-        label2.setTranslateY(-65);
+        label2.setTranslateX(-15);
+        label2.setTranslateY(-50);
       
         StackPane root = new StackPane();
         root.getChildren().add(btn);
