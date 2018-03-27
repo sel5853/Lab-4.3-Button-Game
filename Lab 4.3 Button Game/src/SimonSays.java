@@ -31,7 +31,6 @@ public class SimonSays extends Application
         Button btn1 = new Button();
         Button btn2 = new Button();
         Button btn3 = new Button();
-
        
         btn.setOnAction(new EventHandler<ActionEvent>() 
         
