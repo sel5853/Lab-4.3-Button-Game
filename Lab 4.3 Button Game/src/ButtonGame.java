@@ -3,6 +3,7 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -86,7 +87,7 @@ public class ButtonGame extends Application
         		{
         			btn.setText("Click me");
         			label1.setText("You have 10 seconds to click! Go!");
-        			label2.setText("You have 10 seconds after the starting time : " + Integer.toString((int) (now / 1000000000)));
+        			label2.setText("You have 10 seconds after the starting time: " + Integer.toString((int) (now / 1000000000)));
         		}
                  
         		txt.setText("SCORE: " + Integer.toString(score));
@@ -94,18 +95,17 @@ public class ButtonGame extends Application
             }
         }.start();
         
-        txt.setTranslateX(-80);
-        txt.setTranslateY(-100);
-        label.setTranslateX(50);
-        label.setTranslateY(-100);
-        label1.setTranslateX(-20);
-        label1.setTranslateY(-75);
-        label2.setTranslateX(-15);
-        label2.setTranslateY(-50);
+       
+     
       
         StackPane root = new StackPane();
         root.getChildren().add(btn);
         root.getChildren().add(txt);
+        root.setAlignment(txt, Pos.TOP_LEFT);
+        root.setAlignment(label, Pos.TOP_RIGHT);
+        label1.setTranslateX(-10);
+        label1.setTranslateY(-75);
+        root.setAlignment(label2, Pos.BOTTOM_CENTER);
         root.getChildren().add(label);
         root.getChildren().add(label1);
         root.getChildren().add(label2);

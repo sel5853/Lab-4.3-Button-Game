@@ -74,14 +74,13 @@ public class ChaseTheButton extends Application
     
         
    
-        txt.setTranslateX(-80);
-        txt.setTranslateY(-100);
-        highScore.setTranslateX(50);
-        highScore.setTranslateY(-100);
+        
        
         StackPane root = new StackPane();
         root.getChildren().add(btn);
         root.getChildren().add(txt);
+        root.setAlignment(txt, Pos.TOP_LEFT);
+        root.setAlignment(highScore, Pos.TOP_RIGHT);
         root.getChildren().add(highScore);
         primaryStage.setScene(new Scene(root, 300, 250));
         primaryStage.show();
