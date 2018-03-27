@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class ButtonGame extends Application 
 {
 	private int score = 0;
-	private boolean scoring;
+	private boolean scoring = true;
 	private long timeStep;
 	private int highScore=0;
 
