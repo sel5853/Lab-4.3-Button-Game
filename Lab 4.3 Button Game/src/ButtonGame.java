@@ -39,6 +39,7 @@ public class ButtonGame extends Application
         label1.setStyle("-fx-font: normal bold 12px 'monospace' "); 
         label2.setStyle("-fx-font: normal bold 11px 'monospace' "); 
         btn.setStyle("-fx-font: normal 12px 'monospace' "); 
+        btn.setStyle("-fx-background-color: red; -fx-text-fill: white;");
         
         btn.setOnAction(new EventHandler<ActionEvent>() 
         

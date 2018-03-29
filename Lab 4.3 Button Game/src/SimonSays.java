@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.canvas.Canvas;
 
 public class SimonSays extends Application 
 {
@@ -31,6 +32,12 @@ public class SimonSays extends Application
         Button btn1 = new Button();
         Button btn2 = new Button();
         Button btn3 = new Button();
+        
+        btn.setStyle("-fx-background-color: red; -fx-text-fill: white;");
+        btn1.setStyle("-fx-background-color: blue; -fx-text-fill: white;");
+        btn2.setStyle("-fx-background-color: gold; -fx-text-fill: white;");
+        btn3.setStyle("-fx-background-color: green; -fx-text-fill: white;");
+
        
         btn.setOnAction(new EventHandler<ActionEvent>() 
         
