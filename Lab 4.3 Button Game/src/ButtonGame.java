@@ -7,9 +7,13 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 
 public class ButtonGame extends Application 
 {
@@ -41,15 +45,27 @@ public class ButtonGame extends Application
         btn.setStyle("-fx-font: normal 12px 'monospace' "); 
         btn.setStyle("-fx-background-color: red; -fx-text-fill: white;");
         
+        Image red = new Image(getClass().getResourceAsStream("red.jpg"));
+        Image green = new Image(getClass().getResourceAsStream("green.jpg"));
+        
         btn.setOnAction(new EventHandler<ActionEvent>() 
         
         {
             @Override
             public void handle(ActionEvent event) 
             {
+            	  btn.setText("");
+                  Button button = (Button) event.getSource();
+                  ImageView imageview = new ImageView(red);
+                  ImageView imageview2 = new ImageView(green);
+                  imageview.setFitHeight(40);
+                  imageview.setFitWidth(40);
+                  imageview2.setFitHeight(40);
+                  imageview2.setFitWidth(40);
             
                if(scoring) 
                {
+            	   button.setGraphic(imageview2);
             	   score++;
             	   if(score> highScore) 
             	   {
@@ -58,6 +74,7 @@ public class ButtonGame extends Application
                }
                else
                {
+            	   button.setGraphic(imageview);
             	  score--;
                }
             }

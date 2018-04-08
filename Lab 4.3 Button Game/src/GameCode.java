@@ -1,3 +1,9 @@
+/*
+ * Stanley Liang and Evan Wu
+ * AP CSA Period 2
+ * Lab 4.3
+ */
+
 
 // import BackEnd.HighScore;
 import javafx.animation.AnimationTimer;
@@ -8,9 +14,13 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 
 public class GameCode extends Application
 {
@@ -37,7 +47,7 @@ public class GameCode extends Application
         btn.setStyle("-fx-font: normal 12px 'monospace' ");
         txt.setStyle("-fx-font: normal bold 15px 'monospace' "); 
         highScore.setStyle("-fx-font: normal bold 15px 'monospace' "); 
-       
+        Image image = new Image(getClass().getResourceAsStream("mole.jpg"));
         btn.setOnAction(new EventHandler<ActionEvent>() 
         
         {
@@ -45,7 +55,12 @@ public class GameCode extends Application
             @Override
             public void handle(ActionEvent event) 
             {
-            
+            	btn.setText("");
+                Button button = (Button) event.getSource();
+                ImageView imageview = new ImageView(image);
+                imageview.setFitHeight(40);
+                imageview.setFitWidth(40);
+                button.setGraphic(imageview);
             	scoring = true;
             	   score++;  
             	   if(score> newHighScore) 
@@ -65,7 +80,7 @@ public class GameCode extends Application
         		if(score!=0 && scoring)
         		{
         			 btn.setTranslateX((Math.random()*200)-100);
-        			 btn.setTranslateY((Math.random()*175)-75);
+        			 btn.setTranslateY((Math.random()*200)-100);
         			 scoring = false;
    
         		}
@@ -85,7 +100,7 @@ public class GameCode extends Application
         root.setAlignment(txt, Pos.TOP_LEFT);
         root.setAlignment(highScore, Pos.TOP_RIGHT);
         root.getChildren().add(highScore);
-        primaryStage.setScene(new Scene(root, 300, 250));
+        primaryStage.setScene(new Scene(root, 300, 300));
         primaryStage.show();
     }
 }
