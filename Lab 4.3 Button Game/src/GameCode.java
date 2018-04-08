@@ -25,6 +25,7 @@ public class GameCode extends Application
         launch(args);
     }
     
+    
     @Override
     public void start(Stage primaryStage) 
     {
