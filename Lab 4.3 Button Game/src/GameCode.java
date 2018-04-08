@@ -18,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -100,6 +101,7 @@ public class GameCode extends Application
         root.setAlignment(txt, Pos.TOP_LEFT);
         root.setAlignment(highScore, Pos.TOP_RIGHT);
         root.getChildren().add(highScore);
+        root.setStyle("-fx-background-color: green");
         primaryStage.setScene(new Scene(root, 300, 300));
         primaryStage.show();
     }
