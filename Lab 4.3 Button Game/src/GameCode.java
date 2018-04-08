@@ -67,7 +67,7 @@ public class GameCode extends Application
             	   if(score> newHighScore) 
             	   {
             		   newHighScore = score;
-            		   BackEnd.WritetoFile((int) newHighScore);
+            		   BackEnd.WritetoFile(newHighScore);
                    }
             }
             
